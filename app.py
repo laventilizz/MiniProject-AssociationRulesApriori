@@ -225,7 +225,7 @@ def create_basket_matrix(df: pd.DataFrame, country: str) -> pd.DataFrame:
         .fillna(0)
         .set_index('InvoiceNo')
     )
-    basket_encoded = basket.applymap(lambda x: True if x > 0 else False)
+    basket_encoded = basket.map(lambda x: True if x > 0 else False)
 
     # Hapus kolom yang semua nilainya False (produk tidak pernah dibeli)
     basket_encoded = basket_encoded.loc[:, basket_encoded.any()]
