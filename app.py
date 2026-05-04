@@ -180,7 +180,7 @@ def load_and_clean_data(uploaded_file) -> pd.DataFrame:
     else:
         df = pd.read_csv(uploaded_file, encoding='ISO-8859-1')
 
-    # 🔥 Cleaning versi sederhana (sesuai dataset kamu)
+    # Cleaning versi sederhana (sesuai dataset kamu)
     df.dropna(subset=['InvoiceNo', 'Description', 'Country'], inplace=True)
 
     # Pastikan tipe data
@@ -821,7 +821,7 @@ if st.session_state.get('analysis_run', False):
 else:
     # ── Tampilan awal sebelum analisis dijalankan ────────────
     # st.info: Kotak pesan berwarna biru — informatif, non-urgent
-    st.info("👈 Upload dataset dan klik **Jalankan Analisis** di sidebar untuk memulai.")
+    st.info("Upload dataset atau langsung klik **Jalankan Analisis** di sidebar untuk memulai.")
 
     # Tampilkan penjelasan singkat tentang algoritma
     with st.expander("ℹ️ Apa itu Market Basket Analysis?"):
@@ -834,7 +834,7 @@ else:
         | Metrik | Rumus | Interpretasi |
         |--------|-------|--------------|
         | **Support** | P(A ∩ B) | Seberapa sering A dan B muncul bersama |
-        | **Confidence** | P(B|A) | Jika A dibeli, seberapa sering B juga dibeli |
+        | **Confidence** | P(B\|A) | Jika A dibeli, seberapa sering B juga dibeli |
         | **Lift** | Confidence / P(B) | Lift > 1: hubungan positif (bukan kebetulan) |
 
         **Cara baca aturan:** *"Jika pelanggan membeli **A**, maka kemungkinan besar juga membeli **B**"*
