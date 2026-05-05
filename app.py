@@ -317,15 +317,8 @@ with st.sidebar:
     # ── AUTO LOAD jika tidak upload ─────────────────────────────
     DEFAULT_PATH = "invoice_desc.xlsx"  # ← sesuaikan path kamu
 
-    if uploaded_file is not None:
-        df_clean = load_and_clean_data(uploaded_file)
-    else:
-        try:
-            df_clean = load_and_clean_data(open(DEFAULT_PATH, 'rb'))
-            st.success("Menggunakan dataset default")
-        except FileNotFoundError:
-            st.warning("Upload file atau pastikan dataset ada di path default.")
-            st.stop()
+    df_clean = load_and_clean_data(open(DEFAULT_PATH, 'rb'))
+    st.success("Menggunakan dataset default")
     
     st.markdown("---")
     run_button = st.button(
