@@ -313,11 +313,6 @@ with st.sidebar:
     # MENGAPA: Lebih aman dan portabel daripada hardcode path file.
     # User tidak perlu tahu di mana file disimpan di server.
     # ──────────────────────────────────────────────────────────
-    st.markdown("### Upload Dataset")
-    uploaded_file = st.file_uploader(
-        "Upload file Online Retail (CSV atau Excel)",
-        type=['csv', 'xlsx']
-    )
 
     # ── AUTO LOAD jika tidak upload ─────────────────────────────
     DEFAULT_PATH = "invoice_desc.xlsx"  # ← sesuaikan path kamu
@@ -331,8 +326,13 @@ with st.sidebar:
         except FileNotFoundError:
             st.warning("Upload file atau pastikan dataset ada di path default.")
             st.stop()
-
+    
     st.markdown("---")
+    run_button = st.button(
+        "Jalankan Analisis",
+        type="primary",
+        use_container_width=True
+    )
 
     # ── Filter Negara ─────────────────────────────────────────
     # MENGAPA st.selectbox untuk negara?
@@ -407,12 +407,6 @@ with st.sidebar:
     # - User memiliki kontrol penuh kapan analisis dijalankan
     # - Pola UX: atur parameter dulu, baru eksekusi
     # ──────────────────────────────────────────────────────────
-    st.markdown("---")
-    run_button = st.button(
-        "Jalankan Analisis",
-        type="primary",
-        use_container_width=True
-    )
 
     st.markdown("---")
 
