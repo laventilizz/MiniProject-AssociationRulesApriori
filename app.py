@@ -808,7 +808,7 @@ if st.session_state.get('analysis_run', False):
 else:
     # ── Tampilan awal sebelum analisis dijalankan ────────────
     # st.info: Kotak pesan berwarna biru — informatif, non-urgent
-    st.info("Upload dataset atau langsung klik **Jalankan Analisis** di sidebar untuk memulai.")
+    st.info("Klik **Jalankan Analisis** di sidebar untuk memulai.")
 
     # Tampilkan penjelasan singkat tentang algoritma
     with st.expander("ℹ️ Apa itu Market Basket Analysis?"):
